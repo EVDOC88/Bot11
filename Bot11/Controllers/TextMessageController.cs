@@ -21,8 +21,7 @@ namespace Bot11.Controllers
         {
             _telegramClient = telegramBotClient;
             _memoryStorage = memoryStorage;
-        
-            
+           
         }
         public async Task Handle(Message message, CancellationToken ct)
         {
@@ -43,10 +42,8 @@ namespace Bot11.Controllers
                         $"{Environment.NewLine}Можно посчитать кол-во сиволов в сообщении или сумму чисел{Environment.NewLine}", cancellationToken: ct, parseMode: ParseMode.Html, replyMarkup: new InlineKeyboardMarkup(buttons));
 
                     break;
-
-      
-
             }
+
             string userSelect = _memoryStorage.GetSession(message.Chat.Id).Select; // Здесь получим выбор функции
             if (userSelect == "kol")
             {
